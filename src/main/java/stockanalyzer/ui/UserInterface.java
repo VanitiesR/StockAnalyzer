@@ -13,14 +13,15 @@ public class UserInterface
 	private Controller ctrl = new Controller();
 
 	public void getDataFromCtrl1(){
-		ctrl.process("ABC");
+		ctrl.process("AAPL"); //try-catch
 	}
 
 	public void getDataFromCtrl2(){
+		ctrl.process("DAX");
 	}
 
 	public void getDataFromCtrl3(){
-
+		ctrl.process("MCD");
 	}
 	public void getDataFromCtrl4(){
 
@@ -34,11 +35,11 @@ public class UserInterface
 	public void start() {
 		Menu<Runnable> menu = new Menu<>("User Interfacx");
 		menu.setTitel("Wählen Sie aus:");
-		menu.insert("a", "Choice 1", this::getDataFromCtrl1);
-		menu.insert("b", "Choice 2", this::getDataFromCtrl2);
-		menu.insert("c", "Choice 3", this::getDataFromCtrl3);
-		menu.insert("d", "Choice User Imput:",this::getDataForCustomInput);
-		menu.insert("z", "Choice User Imput:",this::getDataFromCtrl4);
+		menu.insert("a", "Check Apple", this::getDataFromCtrl1);
+		menu.insert("b", "Check DAX30", this::getDataFromCtrl2);
+		menu.insert("c", "Check McDonalds", this::getDataFromCtrl3);
+		menu.insert("d", "Choice User Input:",this::getDataForCustomInput);
+		menu.insert("z", "Choice User Input:",this::getDataFromCtrl4);
 		menu.insert("q", "Quit", null);
 		Runnable choice;
 		while ((choice = menu.exec()) != null) {
